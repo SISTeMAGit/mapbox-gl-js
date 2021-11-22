@@ -1,5 +1,4 @@
 /rollup/build/
-/dist/mapbox-gl*
 /dist/versions*
 /dist/style-spec
 *.es.js
