@@ -54,6 +54,10 @@ function restore(): Window {
     // Add webgl context with the supplied GL
     const originalGetContext = window.HTMLCanvasElement.prototype.getContext;
     window.HTMLCanvasElement.prototype.getContext = function (type, attributes) {
+        Object.assign(attributes, {
+            desynchronized: true, 
+            powerPreference: 'high-performance'
+        });
         if (type === 'webgl2') {
             if (!this._webGLContext) {
                 this._webGLContext = gl(this.width, this.height, attributes);

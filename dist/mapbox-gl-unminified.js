@@ -43999,7 +43999,9 @@ class Map extends Camera {
         const attributes = index.extend({}, supported.webGLContextAttributes, {
             failIfMajorPerformanceCaveat: this._failIfMajorPerformanceCaveat,
             preserveDrawingBuffer: this._preserveDrawingBuffer,
-            antialias: this._antialias || false
+            antialias: this._antialias || false,
+            desynchronized: true,
+            powerPreference: 'high-performance'
         });
         const gl = this._canvas.getContext('webgl2', attributes) || this._canvas.getContext('experimental-webgl', attributes);
         if (!gl) {
